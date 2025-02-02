@@ -17,86 +17,23 @@
             <div class="product-host w-100 mt-4" style="height: 400px;padding: 0 5%;">
                 <div class="swiper mySwiper2 mt-4">
                     <div class="swiper-wrapper" style="height: 400px;">
-                        <div class="swiper-slide text-center">
-                            <a href="">
-                                <img src="https://product.hstatic.net/1000333436/product/txvn25_6e73bac970a64f8190b4c971df1d3f14_grande.jpg"
-                                     alt="Ảnh sản phẩm"
-                                     class="d-block w-100 img-fluid"
-                                     style="height: 300px; object-fit: cover; object-position: center;">
-                            </a>
-                            <div class="product-info text-center mt-3">
-                                <a href="" class="product-title a text-reset text-decoration-none" aria-label="Áo vest đỏ đô pastel - AV415" title="Áo vest đỏ đô pastel - AV415">Áo vest đỏ đô pastel - AV415</a>
-                                <span class="product-price">
-                                    <span class="current-price">3,100,000₫</span>
+                        @foreach ($products as $product)
+                            <div class="swiper-slide text-center">
+                                <a href="">
+                                    <img src="{{ $product['image'] }}"
+                                         alt="Ảnh sản phẩm"
+                                         class="d-block w-100 img-fluid"
+                                         style="height: 300px; object-fit: cover; object-position: center;">
+                                </a>
+                                <div class="product-info text-center mt-3">
+                                    <a href="" class="product-title a text-reset text-decoration-none" aria-label="{{ $product['name'] }}" title="Áo vest đỏ đô pastel - AV415">{{ $product['name'] }}</a>
+                                    <span class="product-price">
+                                    <span class="current-price">{{ number_format($product['price'], 0, ',', '.') }}₫</span>
                                 </span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide text-center">
-                            <a href="">
-                                <img src="https://product.hstatic.net/1000333436/product/txvn21_ad8dd802391c4e15916a6c8286124e16_grande.jpg"
-                                     alt="Ảnh sản phẩm"
-                                     class="d-block w-100 img-fluid"
-                                     style="height: 300px; object-fit: cover; object-position: center;">
-                            </a>
-                            <div class="product-action clearfix">
-                                <div class="group_action"></div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide text-center">
-                            <a href="">
-                                <img src="https://product.hstatic.net/1000333436/product/txv209csv_7bdb27289fb8443f98bbfb9a09891b30_grande.jpg"
-                                     alt="Ảnh sản phẩm"
-                                     class="d-block w-100 img-fluid"
-                                     style="height: 300px; object-fit: cover; object-position: center;">
-                            </a>
-                            <div class="product-action clearfix">
-                                <div class="group_action"></div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide text-center">
-                            <a href="">
-                                <img src="https://product.hstatic.net/1000333436/product/416_a07c6467cc7147a5ab84cba3a247575b_grande.jpg"
-                                     alt="Ảnh sản phẩm"
-                                     class="d-block w-100 img-fluid"
-                                     style="height: 300px; object-fit: cover; object-position: center;">
-                            </a>
-                            <div class="product-action clearfix">
-                                <div class="group_action"></div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide text-center">
-                            <a href="">
-                                <img src="https://product.hstatic.net/1000333436/product/314cq_c61ea6d3072f4d0bb1685babe2b6526c_grande.jpg"
-                                     alt="Ảnh sản phẩm"
-                                     class="d-block w-100 img-fluid"
-                                     style="height: 300px; object-fit: cover; object-position: center;">
-                            </a>
-                            <div class="product-action clearfix">
-                                <div class="group_action"></div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide text-center">
-                            <a href="">
-                                <img src="https://product.hstatic.net/1000333436/product/394_47aa91918fae465ea7fbd65babcbe469_grande.jpg"
-                                     alt="Ảnh sản phẩm"
-                                     class="d-block w-100 img-fluid"
-                                     style="height: 300px; object-fit: cover; object-position: center;">
-                            </a>
-                            <div class="product-action clearfix">
-                                <div class="group_action"></div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide text-center">
-                            <a href="">
-                                <img src="https://product.hstatic.net/1000333436/product/344_2e330be03eba4db29b3e735efa79f755_grande.jpg"
-                                     alt="Ảnh sản phẩm"
-                                     class="d-block w-100 img-fluid"
-                                     style="height: 300px; object-fit: cover; object-position: center;">
-                            </a>
-                            <div class="product-action clearfix">
-                                <div class="group_action"></div>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
