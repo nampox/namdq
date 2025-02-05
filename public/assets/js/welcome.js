@@ -76,7 +76,7 @@ $(document).ready(function () {
             loadProducts();
         }
 
-        if (!['dashboard-link', 'login-link', 'register-link'].includes(linkId)) {
+        if (!['dashboard-link', 'register-link'].includes(linkId)) {
             e.preventDefault();
             var target = linkId.replace('-link', '');
             $('section').hide();
@@ -91,3 +91,57 @@ $(document).ready(function () {
         loadProductDetail($(this).data('id'));
     });
 });
+function register(event) {
+    event.preventDefault(); // Ngăn chặn hành động mặc định của form
+
+    // Lấy giá trị từ form
+    const name = document.getElementById('registerName').value;
+    const username = document.getElementById('registerUsername').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    const repeatPassword = document.getElementById('registerRepeatPassword').value;
+
+    // Kiểm tra mật khẩu
+    if (password !== repeatPassword) {
+        alert('Mật khẩu và nhập lại mật khẩu không khớp!');
+        return;
+    }
+
+    // Tạo đối tượng dữ liệu để gửi đi
+    const requestData = {
+        name: name,
+        username: username,
+        email: email,
+        password: password,
+        password_confirmation: repeatPassword, // Sử dụng biến đã kiểm tra
+    };
+
+    // Gửi POST request đến API
+    fetch('http://nampox.local/api/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify(requestData),
+    })
+        .then(response => {
+            return response.text().then(text => {
+                // In ra phản hồi trước khi phân tích
+                console.log("Phản hồi từ server:", text);
+                if (!response.ok) {
+                    throw new Error(text || 'Có lỗi xảy ra trong quá trình đăng ký!');
+                }
+                return JSON.parse(text); // Phân tích JSON sau khi in ra
+            });
+        })
+        .then(data => {
+            // Xử lý dữ liệu đáp ứng từ API
+            console.log(data);
+            alert('Đăng ký thành công!');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Đăng ký không thành công. Vui lòng kiểm tra lại! ' + error.message);
+        });
+}

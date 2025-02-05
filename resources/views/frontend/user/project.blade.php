@@ -36,15 +36,15 @@
                             <img src="" class="img-fluid image_product" alt="Ảnh sản phẩm">
                         </div>
                         <div class="col-lg-8 col-md-8 col-ms-12">
-                            <h5 class="modal-title" id="exampleModalLabel">Chi tiết sản phẩm</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Tên sản phẩm</h5>
                             <p class="description">Thông tin sản phẩm</p>
-                            <h5 class="price">Giá: ₫</h5>
+                            <h5 class="price">Giá</h5>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                </div>
+{{--                <div class="modal-footer">--}}
+{{--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>

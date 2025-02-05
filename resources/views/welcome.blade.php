@@ -28,6 +28,8 @@
 
     <link rel="stylesheet" href="/assets/css/home.css">
     <script src="/assets/js/welcome.js"></script>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
 <header class="header">
@@ -38,6 +40,7 @@
         <a href="#" class="nav-link" id="services-link">Services</a>
         <a href="#" class="nav-link" id="portfolio-link">Portfolio</a>
         <a href="#" class="nav-link" id="contact-link">Contact</a>
+        <a href="#" class="nav-link" id="login-link">login</a>
         @if (Route::has('login'))
             @auth
                 <a href="{{ route('dashboard') }}" class="nav-link" id="dashboard-link">Dashboard</a>
@@ -55,5 +58,6 @@
 @include('frontend.user.services')
 @include('frontend.user.portfolio')
 @include('frontend.user.contact')
+@include('frontend.user.login')
 </body>
 </html>
